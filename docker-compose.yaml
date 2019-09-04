@@ -25,14 +25,13 @@ services:
           - dummy-service
 
   envoy:
-    image: envoyproxy/envoy-alpine:v1.8.0
+    image: envoyproxy/envoy-alpine:v1.11.1
     volumes:
       - ./envoy-config.yaml:/etc/envoy-config.yaml
     command:
       - envoy
       - --config-path
       - /etc/envoy-config.yaml
-      - --v2-config-only
       - --service-node
       - envoy_1
       - --service-cluster
